@@ -6,23 +6,23 @@ pipeline {
       steps {// Register START of build.
         script {
           def testvalue = "PM code build fails when JMP user story has special character & < in its Text Summary"
-          registerApplicationComponentVersionAttributeValue(testvalue)
+          registerApplication(testvalue)
         }
       }
     }
   }
 }
 
-def registerApplicationComponentVersionAttributeValue(value) {
+def registerApplication(value) {
   script {
     sh """
-      rm -rf registerApplicationComponentVersionAttributeValue.xml
-      rm -rf registerApplicationComponentVersionAttributeValueResponseParameters.txt
-      echo '<?xml version="1.0" encoding="UTF-8"?>' > registerApplicationComponentVersionAttributeValue.xml 
-      echo '<registerApplicationComponentVersionAttributeValueRequest>' >> registerApplicationComponentVersionAttributeValue.xml
-      echo '<value><![CDATA[${value}]]></value>' >> registerApplicationComponentVersionAttributeValue.xml
-      echo '</registerApplicationComponentVersionAttributeValueRequest>' >> registerApplicationComponentVersionAttributeValue.xml		
-      cat registerApplicationComponentVersionAttributeValue.xml
+      rm -rf registerApplication.xml
+      rm -rf registerApplicationValueResponseParameters.txt
+      echo '<?xml version="1.0" encoding="UTF-8"?>' > registerApplicationValue.xml 
+      echo '<registerApplicationComponentVersionAttributeValueRequest>' >> registerApplicationValue.xml
+      echo '<value><![CDATA[${value}]]></value>' >> registerApplicationValue.xml
+      echo '</registerApplicationComponentVersionAttributeValueRequest>' >> registerApplicationValue.xml		
+      cat registerApplicationValue.xml
     """
   }
 }

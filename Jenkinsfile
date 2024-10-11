@@ -6,7 +6,7 @@ pipeline {
       steps {
         script {
           def testvalue = "PM code build fails when JMP user story has special character & < in its Text Summary"
-          registerApplicationComponentVersionAttributeValue(testvalue)
+          registerApplicationComponentVersionAttributeValue("${testvalue}")
         }
       }
     }

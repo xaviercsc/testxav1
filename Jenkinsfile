@@ -15,14 +15,13 @@ pipeline {
 def registerApplication(value) {
   script {
     sh """
-      rm -rf registerApplicationValue.xml
+      rm -rf registerApplication.xml
       rm -rf registerApplicationValueResponseParameters.txt
-      cat <<EOF > registerApplicationValue.xml
-<?xml version="1.0" encoding="UTF-8"?>
-<registerApplicationComponentVersionAttributeValueRequest>
-<value><![CDATA[${value}]]></value>
-</registerApplicationComponentVersionAttributeValueRequest>
-EOF
+      echo '<?xml version="1.0" encoding="UTF-8"?>' > registerApplicationValue.xml 
+      echo '<registerApplicationComponentVersionAttributeValueRequest>' >> registerApplicationValue.xml
+      echo '<value><![CDATA[${value}]]></value>' >> registerApplicationComponentVersionAttributeValue.xml
+      echo '<value><![CDATA['''+value+''']]></value>' >> registerApplicationComponentVersionAttributeValue.xml
+      echo '</registerApplicationComponentVersionAttributeValueRequest>' >> registerApplicationValue.xml		
       cat registerApplicationValue.xml
     """
   }

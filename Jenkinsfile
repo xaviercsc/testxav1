@@ -5,7 +5,7 @@ pipeline {
     stage('001 START') {
       steps {
         script {
-          def SRC_JMP_SUMMARY = "PM code build fails when JMP user story has special character & < in it's Text Summary"
+          def SRC_JMP_SUMMARY = "PM code build fails when JMP user story has special character & < in its Text Summary"
           registerApplicationComponentVersionAttributeValue(SRC_JMP_SUMMARY)
         }
       }

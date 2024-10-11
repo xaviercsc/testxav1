@@ -4,9 +4,9 @@ pipeline {
   stages {
     stage('001 START BUILD') {
       steps {// Register START of build.
-        script{sh '''
-          def testvalue = "PM code build fails when JMP user story has special character & < in its Text Summary"
-          registerApplication(testvalue)
+        script{
+          testvalue = "PM code build fails when JMP user story has special character & < in its Text Summary"
+          registerApplication("${testvalue}")
         }
       }
     }

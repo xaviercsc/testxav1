@@ -11,7 +11,7 @@ pipeline {
     }
   }
 }
-
+ 
 def registerApplication(value) {
   script {
     sh """
@@ -19,7 +19,8 @@ def registerApplication(value) {
       rm -rf registerApplicationValueResponseParameters.txt
       echo '<?xml version="1.0" encoding="UTF-8"?>' > registerApplicationValue.xml 
       echo '<registerApplicationComponentVersionAttributeValueRequest>' >> registerApplicationValue.xml
-      echo '<value><![CDATA[${value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll("'", "&apos;")}]]></value>' >> registerApplicationValue.xml
+      echo '<value><![CDATA[${value}]]></value>' >> registerApplicationComponentVersionAttributeValue.xml
+      echo '<value><![CDATA['''+value+''']]></value>' >> registerApplicationComponentVersionAttributeValue.xml
       echo '</registerApplicationComponentVersionAttributeValueRequest>' >> registerApplicationValue.xml		
       cat registerApplicationValue.xml
     """

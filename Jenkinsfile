@@ -14,7 +14,7 @@ pipeline {
  
 def registerApplication(value) {
   script {
-    sh """
+    sh '''
       echo "$value"
       rm -rf registerApplication.xml
       rm -rf registerApplicationValueResponseParameters.txt
@@ -23,6 +23,6 @@ def registerApplication(value) {
       echo "<value><![CDATA[$value]]></value>" >> registerApplicationValue.xml
       echo '</registerApplicationComponentVersionAttributeValueRequest>' >> registerApplicationValue.xml		
       cat registerApplicationValue.xml
-    """
+    '''
   }
 }

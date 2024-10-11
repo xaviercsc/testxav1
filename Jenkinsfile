@@ -2,8 +2,8 @@ pipeline {
   agent any
   
   stages {
-    stage('001 START') {
-      steps {
+    stage('001 START BUILD') {
+      steps {// Register START of build.
         script {
           testvalue = "PM code build fails when JMP user story has special character & < in its Text Summary"
           registerApplicationComponentVersionAttributeValue("${testvalue}")
